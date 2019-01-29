@@ -198,13 +198,13 @@ You're ready to start using the tool!
     In the _INPUT_ sheet, we have our list/locations, listed by their
     names:
 
-    ![Example1](docs/images/conversion-example1.png)
+    ![Example1](doc/images/conversion-example1.png)
 
     We list all the list/location names in the _NAME_IDS_MAPPING_
     sheet, specifying the name of the column of the _INPUT_ sheet
     the script needs to look into, and the corresponding DV360 ID:
 
-    ![Example2](docs/images/conversion-example2.png)
+    ![Example2](doc/images/conversion-example2.png)
 
     (list continues with all geo-locations for that country/granularity)
     We apply the automatic conversion, clicking on the
@@ -212,7 +212,7 @@ You're ready to start using the tool!
     If everything has been setup correctly, the _INPUT_ sheet
     now will show IDs rather than names for the lists/locations:
 
-    ![Example3](docs/images/conversion-example3.png)
+    ![Example3](doc/images/conversion-example3.png)
 
     _Note: this example obviously just has a few rows, so a manual
     replacement would have been the quicker solution! But the
