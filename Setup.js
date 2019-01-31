@@ -22,8 +22,16 @@ products and are not formally supported.
  */
 
 var INPUT_HEADERS = ['ID', 'NAME', 'YOUTUBE_ID', 'DISPLAY_URL', 'LANDING_URL'];
-var STRUCTURE_HEADERS = ['IO-SDF', 'IO-SDF-defaults', 'LI-SDF', 'LI-SDF-defaults',
-    'AdGroup-SDF', 'AdGroup-SDF-defaults', 'Ad-SDF', 'Ad-SDF-defaults'];
+var STRUCTURE_HEADERS = [
+  'IO-SDF',
+  'IO-SDF-defaults',
+  'LI-SDF',
+  'LI-SDF-defaults',
+  'AdGroup-SDF',
+  'AdGroup-SDF-defaults',
+  'Ad-SDF',
+  'Ad-SDF-defaults'
+];
 var MAPPING_HEADERS = ['INPUT_COLUMN', 'FULL_NAME', 'DV360_ID'];
 
 /**
@@ -35,10 +43,10 @@ var MAPPING_HEADERS = ['INPUT_COLUMN', 'FULL_NAME', 'DV360_ID'];
 function initialSetup() {
   // Creates the MAPPING sheet.
   if (mappingSheet) {
-    ss.deleteSheet(mappingSheet);
+    doc.deleteSheet(mappingSheet);
   }
-  ss.insertSheet(MAPPING_NAME,0);
-  mappingSheet = ss.getSheetByName(MAPPING_NAME);
+  doc.insertSheet(MAPPING_NAME,0);
+  mappingSheet = doc.getSheetByName(MAPPING_NAME);
   mappingSheet.setTabColor('black');
   mappingSheet
     .getRange(1,1,1,MAPPING_HEADERS.length)
@@ -47,10 +55,10 @@ function initialSetup() {
     .setFontWeight('bold');
   // Creates the INPUT sheet.
   if (inputSheet) {
-    ss.deleteSheet(inputSheet);
+    doc.deleteSheet(inputSheet);
   }
-  ss.insertSheet(INPUT_NAME,0);
-  inputSheet = ss.getSheetByName(INPUT_NAME);
+  doc.insertSheet(INPUT_NAME,0);
+  inputSheet = doc.getSheetByName(INPUT_NAME);
   inputSheet.setTabColor('red');
   inputSheet
     .getRange(1,1,1,INPUT_HEADERS.length)
@@ -59,10 +67,10 @@ function initialSetup() {
     .setFontWeight('bold');
   // Creates the STRUCTURES_AND_DEFAULT sheet.
   if (structuresSheet) {
-    ss.deleteSheet(structuresSheet);
+    doc.deleteSheet(structuresSheet);
   }
-  ss.insertSheet(STRUCTURE_NAME,0);
-  structuresSheet = ss.getSheetByName(STRUCTURE_NAME);
+  doc.insertSheet(STRUCTURE_NAME,0);
+  structuresSheet = doc.getSheetByName(STRUCTURE_NAME);
   structuresSheet.setTabColor('red');
   structuresSheet
       .getRange(1, 1, structuresSheet.getMaxRows(),
@@ -76,13 +84,11 @@ function initialSetup() {
 
   for (i in SDF) {
     var fields = SDF[i].fields;
-    //Logger.log(fields);
     for (row in fields) {
       var field = fields[row];
       structuresSheet.getRange(+row + 2, i * 2 + 1, 1, 2)
           .setValues([[field[0], field[1]]]);
       if (field[2].length > 2) {
-        Logger.log(field[2]);
         structuresSheet.getRange(+row + 2, i * 2 + 2)
             .setBackground(field[2]);
       }

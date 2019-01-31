@@ -34,7 +34,9 @@ function populateObject_(sheet) {
   for (col in values[0]) {
     var contentArray = [];
     for (row in values) {
-      contentArray.push(values[row][col]);
+      if (row > 0) {
+        contentArray.push(values[row][col]);
+      }
     }
     object[values[0][col]] = contentArray;
   }
