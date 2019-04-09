@@ -64,6 +64,7 @@ function onOpen() {
  */
 function generateSdf() {
   errorMessage = '';
+  structuresSheet.getDataRange().setNumberFormat('@STRING@');
   structures = populateObject_(structuresSheet);
   input = populateObject_(inputSheet);
   createSheets_();
@@ -113,8 +114,9 @@ function createSheets_() {
 function replacePlaceholders_(valuesArray, index) {
   for (i in valuesArray) {
     for (colName in input) {
+      var value = valuesArray[i].toString();
       valuesArray[i] =
-          valuesArray[i].replace('%%' + colName + '%%', input[colName][index]);
+          value.replace('%%' + colName + '%%', input[colName][index]);
     }
     if (valuesArray[i].indexOf('%%') >= 0) {
       errorMessage += 'Found a placeholder with no matching value: ' +
