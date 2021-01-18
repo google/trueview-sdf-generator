@@ -1,6 +1,7 @@
 # TrueView SDF Generator
 
-Disclaimer: This is not an official Google product.
+Disclaimer: This is not an official Google product. In fact, this tool is now
+DEPRECATED and no longer actively maintained.
 
 ## OVERVIEW
 
